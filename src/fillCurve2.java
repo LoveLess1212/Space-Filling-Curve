@@ -2,7 +2,7 @@ import processing.core.PApplet;
 import processing.core.PVector;
 
 public class fillCurve2 extends PApplet{
-    int level =3 ;
+    int level =4 ;
     int N = (int)pow(2,level);
 //    int total =  14;
     int total =  3 * (int)pow(4,level-1);
@@ -20,32 +20,32 @@ public class fillCurve2 extends PApplet{
         background(0);
         for (int i = 0; i < total; i++) {
             path[i] = Tri(i);
-            float len = 2*(512 /N) ; // fix later - value now: 256
+            float len = 2*(512 /N) ; // fix later - value now: 128
             path[i].mult(len);
-//           path[i].add(0,len);
+           path[i].add(0,len);
         }
     }
 
-    int counter = 0 ;
+    float counter = 0 ;
     public void draw(){
         background(0);
         stroke(255);
         strokeWeight(2);
 //        beginShape();
-        for (int j = 1; j < path.length; j++) {
+        for (int j = 1; j < counter; j++) {
             float hue = map (j, 0 , path.length,0,360);
             stroke(hue,255,255);
             line(path[j].x,path[j].y,path[j-1].x,path[j-1].y);
         } // this is drawing part :V
         strokeWeight(4);
-        for (int j = 1; j < path.length; j++) {
+        for (int j = 1; j < counter; j++) {
             point(path[j].x,path[j].y);
             text((int)path[j-1].x, (float) (path[j-1].x), (float) (path[j-1].y));
             text((int)path[j-1].y, (float) (path[j-1].x+10), (float) (path[j-1].y+10));
 //            text((int)j-1, (float) (path[j-1].x), (float) (path[j-1].y));
         }
 //        endShape();
-        counter+= 1;
+        counter+= 0.1;
         if (counter >= path.length){
             counter = 0;
         }
@@ -65,7 +65,7 @@ public class fillCurve2 extends PApplet{
         PVector v = point[newIndexMod];
 
         for (int j = 1; j < level; j++) {
-            int len = (int)pow(2,j-1); // now = 1
+            int len = (int)pow(2,j-1); // now = 1,2
 
             int newIndexDiv = i & 3;
             if (newIndexDiv == 0) {
@@ -82,9 +82,10 @@ public class fillCurve2 extends PApplet{
                 v.y +=len;
             }
             else if (newIndexDiv ==3){
-                float temp = 1 - v.x; // len now =
-                v.x = 3* len-1-v.y  ;
+                float temp = len - v.x; // len now = 1 , 2
+                v.x = 2* len-v.y  ;
                 v.y = temp;
+
             }
             i = i >>>2;
         }
