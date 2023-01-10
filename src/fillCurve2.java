@@ -2,7 +2,7 @@ import processing.core.PApplet;
 import processing.core.PVector;
 
 public class fillCurve2 extends PApplet{
-    int level =4 ;
+    int level =7 ;
     int N = (int)pow(2,level);
 //    int total =  14;
     int total =  3 * (int)pow(4,level-1);
@@ -20,9 +20,9 @@ public class fillCurve2 extends PApplet{
         background(0);
         for (int i = 0; i < total; i++) {
             path[i] = Tri(i);
-            float len = 2*(512 /N) ; // fix later - value now: 128
+            float len = 2*(width /N) ; // fix later - value now: 128
             path[i].mult(len);
-           path[i].add(0,len);
+//           path[i].add(0,len);
         }
     }
 
@@ -38,14 +38,14 @@ public class fillCurve2 extends PApplet{
             line(path[j].x,path[j].y,path[j-1].x,path[j-1].y);
         } // this is drawing part :V
         strokeWeight(4);
-        for (int j = 1; j < counter; j++) {
-            point(path[j].x,path[j].y);
-            text((int)path[j-1].x, (float) (path[j-1].x), (float) (path[j-1].y));
-            text((int)path[j-1].y, (float) (path[j-1].x+10), (float) (path[j-1].y+10));
-//            text((int)j-1, (float) (path[j-1].x), (float) (path[j-1].y));
-        }
+//        for (int j = 1; j < counter; j++) {
+//            point(path[j].x,path[j].y);
+////            text((int)path[j-1].x, (float) (path[j-1].x), (float) (path[j-1].y));
+////            text((int)path[j-1].y, (float) (path[j-1].x+10), (float) (path[j-1].y+10));
+////            text((int)j-1, (float) (path[j-1].x), (float) (path[j-1].y));
+//        }
 //        endShape();
-        counter+= 0.1;
+        counter+= 1;
         if (counter >= path.length){
             counter = 0;
         }
