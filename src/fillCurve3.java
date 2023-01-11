@@ -88,7 +88,7 @@ public class fillCurve3 extends PApplet{
     }
 
     public static void main(String[] args) {
-        String[] name = new String[] {"fillCurve1"};
+        String[] name = new String[] {"fillCurve3"};
         PApplet.main(name);
     }
 }

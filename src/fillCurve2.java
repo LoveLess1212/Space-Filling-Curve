@@ -1,8 +1,10 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
+import processing.event.MouseEvent;;
+
 public class fillCurve2 extends PApplet{
-    int level =7 ;
+    int level =5 ;
     int N = (int)pow(2,level);
 //    int total =  14;
     int total =  3 * (int)pow(4,level-1);
@@ -11,7 +13,7 @@ public class fillCurve2 extends PApplet{
 
 
     public void settings(){
-        int size = 1024;
+        int size = 512;
         size(size,size);
         smooth();
     }
@@ -38,21 +40,21 @@ public class fillCurve2 extends PApplet{
             line(path[j].x,path[j].y,path[j-1].x,path[j-1].y);
         } // this is drawing part :V
         strokeWeight(4);
-//        for (int j = 1; j < counter; j++) {
+        for (int j = 1; j < counter; j++) {
 //            point(path[j].x,path[j].y);
-////            text((int)path[j-1].x, (float) (path[j-1].x), (float) (path[j-1].y));
-////            text((int)path[j-1].y, (float) (path[j-1].x+10), (float) (path[j-1].y+10));
-////            text((int)j-1, (float) (path[j-1].x), (float) (path[j-1].y));
-//        }
+//            text((int)path[j-1].x, (float) (path[j-1].x), (float) (path[j-1].y));
+//            text((int)path[j-1].y, (float) (path[j-1].x+10), (float) (path[j-1].y+10));
+//            text((int)j-1, (float) (path[j-1].x), (float) (path[j-1].y));
+        }
 //        endShape();
-        counter+= 1;
+        counter+= 20;
         if (counter >= path.length){
             counter = 0;
+            level ++;
         }
         text("Level: "+ level,0,40);
 
     } // dont touch it until you done the algo :))))))))
-
 
     public PVector Tri(int i){
         PVector[] point = {

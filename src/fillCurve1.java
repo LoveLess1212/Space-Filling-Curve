@@ -3,7 +3,7 @@ import processing.core.PFont;
 import processing.core.PVector;
 
 public class fillCurve1 extends PApplet{
-    int level =8    ;
+    int level =4    ;
     int N = (int) pow(2,level);
     int total = N*N;
     PVector[] path = new PVector[total];
@@ -13,6 +13,7 @@ public class fillCurve1 extends PApplet{
         smooth();
     }
     public void setup(){
+        noStroke();
         colorMode(HSB,360,255,255);
         background(0);
         for (int i = 0; i < total; i++) {
@@ -21,6 +22,9 @@ public class fillCurve1 extends PApplet{
             path[i].mult(len);
             path[i].add(len/2,len/2);
         }
+        surface.setTitle("Hilbert Curve!");
+        surface.setResizable(true);
+        surface.setLocation(100, 100);
     }
 
     int counter = 0 ;
@@ -58,7 +62,7 @@ public class fillCurve1 extends PApplet{
             int len = (int)pow(2,j);
             i = i >>>2;
             index = i & 3;
-            if (index == 0 ){
+            if (index == 0 ){ // roltate left
                 float temp = v.x;
                 v.x = v.y;
                 v.y = temp;
