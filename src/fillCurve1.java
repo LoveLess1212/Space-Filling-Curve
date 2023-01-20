@@ -3,13 +3,13 @@ import processing.core.PFont;
 import processing.core.PVector;
 
 public class fillCurve1 extends PApplet{
-    int level =4    ;
-    int N = (int) pow(2,level);
-    int total = N*N;
+    int level =4; // number of recursion
+    int N = (int) pow(2,level); // size of the background (for drawing)
+    int total = N*N; // total line of drawing
     PVector[] path = new PVector[total];
 
     public void settings(){
-        size(1024,1024);
+        size(512,512); // set the size of the image
         smooth();
     }
     public void setup(){
@@ -22,8 +22,7 @@ public class fillCurve1 extends PApplet{
             path[i].mult(len);
             path[i].add(len/2,len/2);
         }
-        surface.setTitle("Hilbert Curve!");
-        surface.setResizable(true);
+        surface.setTitle("Hilbert Curve!"); // name of the window
         surface.setLocation(100, 100);
     }
 
@@ -32,17 +31,20 @@ public class fillCurve1 extends PApplet{
         background(0);
         stroke(255);
         strokeWeight(2);
-//        beginShape();
         for (int j = 1; j <  counter; j++) {
+            /*
+            * Set the color of the image
+            * the j change from 0 to 360 directly proportional to 0-> path.lenth
+            * or (j/(path.length))*361-1
+            * */
             float hue = map (j, 0 , path.length,0,360);
-            stroke(hue,255,255);
-            line(path[j].x,path[j].y,path[j-1].x,path[j-1].y);
+            stroke(hue,255,255); // set the color for the line
+            line(path[j].x,path[j].y,path[j-1].x,path[j-1].y); // draw
         }
-//        endShape();
-        counter+= 1;
+        counter+= 1; // using this one to increase speed of the animation
         if (counter >= path.length){
             counter = 0;
-        }
+        } // reset the counter (animation) when the picture is finish
         text("Level: "+ level,0,40);
 
     }
@@ -74,7 +76,7 @@ public class fillCurve1 extends PApplet{
                 v.x +=len;
                 v.y +=len;
             }
-            else if (index == 3){
+            else if (index == 3){ // roltate right
                 float temp = len - 1 - v.x; // len now =
                 v.x = 2* len-1-v.y  ;
                 v.y = temp;
