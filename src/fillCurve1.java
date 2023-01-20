@@ -1,12 +1,27 @@
+/*
+* Hilbert Curve Animation V1
+* Author: 1. Phi Dinh Van Toan
+*         2. Nguyen Khac Hoang
+*         3. Duy :v Quen ten r
+* Day created: 16.12.2022
+* Last update: 20.01.2023
+* Description: Create Hilbert Curve(space filling) using iteration method
+*
+* Function: press
+*   1. "ArrowUp" to increase the level of Iteration
+*   2. "ArrowDown" to decrease the level of Iteration
+*   3. "ArrowRight" to increase the level of Iteration
+*   4. "ArrowLeft" to decrease the speed of the animation
+* */
+
 import processing.core.PApplet;
-import processing.core.PFont;
 import processing.core.PVector;
 
 public class fillCurve1 extends PApplet{
-    int level =4; // number of recursion
+    int level =2; // number of Iteration
     int N = (int) pow(2,level); // size of the background (for drawing)
     int total = N*N; // total line of drawing
-    PVector[] path = new PVector[total];
+    PVector[] path = new PVector[(int)(pow(2,12)*pow(2,12))];
 
     public void settings(){
         size(512,512); // set the size of the image
@@ -18,7 +33,7 @@ public class fillCurve1 extends PApplet{
         background(0);
         for (int i = 0; i < total; i++) {
             path[i] = Hilbert(i);
-            float len = width/N ;
+            float len = width/(float)N ;
             path[i].mult(len);
             path[i].add(len/2,len/2);
         }
@@ -26,7 +41,8 @@ public class fillCurve1 extends PApplet{
         surface.setLocation(100, 100);
     }
 
-    int counter = 0 ;
+    float counter = 0; // this one is to change the position(stage :V)(iteration) of the animation
+    float speed = 1; // this one is to change the speed of the animation
     public void draw(){
         background(0);
         stroke(255);
@@ -37,19 +53,50 @@ public class fillCurve1 extends PApplet{
             * the j change from 0 to 360 directly proportional to 0-> path.lenth
             * or (j/(path.length))*361-1
             * */
-            float hue = map (j, 0 , path.length,0,360);
+            float hue = map (j, 0 , total,0,360);
             stroke(hue,255,255); // set the color for the line
             line(path[j].x,path[j].y,path[j-1].x,path[j-1].y); // draw
         }
-        counter+= 1; // using this one to increase speed of the animation
-        if (counter >= path.length){
+        counter+= speed; // using this one to increase speed of the animation
+        if (counter >= total){
             counter = 0;
         } // reset the counter (animation) when the picture is finish
         text("Level: "+ level,0,40);
 
     }
+    public void reInitialize(){
+        counter =0; // restart the counter
+        /*
+        * recalculate all the value of the line
+        * */
+        N = (int)pow(2,level);
+        total =  N*N;
+        for (int i = 0; i < total; i++) {
+            path[i] = Hilbert(i);
+            float len = (width /(float)N) ;
+            path[i].mult(len);
+            path[i].add(len/2,len/2);
+        }
+    }
+    public void keyPressed(){
+        if (key == CODED){
+            if (keyCode == UP){
+                level++;
+                reInitialize();
+            }
+            if (keyCode == DOWN){
+                level --;
+                reInitialize();
+            }
+            if (keyCode == LEFT){
+                speed = (float) (speed * 0.9);
+            }
+            if (keyCode == RIGHT){
+                speed = (float) (speed * 1.1);
+            }
 
-
+        }
+    }
     public PVector Hilbert (int i){
         PVector[] point = {
                 new PVector(0,0),
@@ -76,7 +123,7 @@ public class fillCurve1 extends PApplet{
                 v.x +=len;
                 v.y +=len;
             }
-            else if (index == 3){ // roltate right
+            else{ // roltate right
                 float temp = len - 1 - v.x; // len now =
                 v.x = 2* len-1-v.y  ;
                 v.y = temp;

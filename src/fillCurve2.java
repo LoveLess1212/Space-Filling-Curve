@@ -4,12 +4,11 @@ import processing.core.PVector;
 import processing.event.MouseEvent;;
 
 public class fillCurve2 extends PApplet{
-    int level =5 ;
+    int level =2 ;
     int N = (int)pow(2,level);
-//    int total =  14;
     int total =  3 * (int)pow(4,level-1);
-
-    PVector[] path = new PVector[total];
+    PVector[] path = new PVector[3 * (int)pow(4,11)];
+    PVector[] pathNow = new PVector[total];
 
 
     public void settings(){
@@ -24,7 +23,7 @@ public class fillCurve2 extends PApplet{
             path[i] = Tri(i);
             float len = 2*(width /N) ; // fix later - value now: 128
             path[i].mult(len);
-//           path[i].add(0,len);
+            path[i].add(0,0);
         }
     }
 
@@ -35,7 +34,7 @@ public class fillCurve2 extends PApplet{
         strokeWeight(2);
 //        beginShape();
         for (int j = 1; j < counter; j++) {
-            float hue = map (j, 0 , path.length,0,360);
+            float hue = map (j, 0 ,total,0,360);
             stroke(hue,255,255);
             line(path[j].x,path[j].y,path[j-1].x,path[j-1].y);
         } // this is drawing part :V
@@ -47,15 +46,37 @@ public class fillCurve2 extends PApplet{
 //            text((int)j-1, (float) (path[j-1].x), (float) (path[j-1].y));
         }
 //        endShape();
-        counter+= 20;
-        if (counter >= path.length){
+        counter+= 1;
+        if (counter >= total){
             counter = 0;
-            level ++;
         }
         text("Level: "+ level,0,40);
 
     } // dont touch it until you done the algo :))))))))
+    public void reInitialize(){
+        counter =0;
+        N = (int)pow(2,level);
+        total =  3 * (int)pow(4,level-1);
+        for (int i = 0; i < total; i++) {
+            path[i] = Tri(i);
+            float len = 2*(width /N) ;
+            path[i].mult(len);
+            path[i].add(0,0);
+    }
+    }
+    public void keyPressed(){
+        if (key == CODED){
+            if (keyCode == UP){
+                level++;
+                reInitialize();
+            }
+            if (keyCode == DOWN){
+                level --;
+                reInitialize();
+            }
 
+        }
+    }
     public PVector Tri(int i){
         PVector[] point = {
                 new PVector(0,0),
