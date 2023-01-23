@@ -61,6 +61,8 @@ public class fillCurve4 extends PApplet{
         if (counter >= total){
             counter = 0;
         } // reset the counter (animation) when the picture is finish
+        String shown_speed = String.format("%.2f",(speed));
+        text("Speed:" + shown_speed,0,60);
         text("Level: "+ level,0,40);
 
     }

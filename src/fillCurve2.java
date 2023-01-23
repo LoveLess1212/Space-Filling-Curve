@@ -20,7 +20,7 @@ import processing.core.PVector;
 import processing.event.MouseEvent;;
 
 public class fillCurve2 extends PApplet{
-    int level =2 ;
+    int level =1 ;
     int N = (int)pow(2,level);
     int total =  3 * (int)pow(4,level-1);
     PVector[] path = new PVector[3 * (int)pow(4,10)];
@@ -62,6 +62,8 @@ public class fillCurve2 extends PApplet{
         if (counter >= total){
             counter = 0;
         } // reset the counter (animation) when the picture is finish
+        String shown_speed = String.format("%.2f",(speed));
+        text("Speed:" + shown_speed,0,60);
         text("Level: "+ level,0,40);
 
     }
@@ -81,13 +83,13 @@ public class fillCurve2 extends PApplet{
         if (key == CODED){
 
             if (keyCode == UP){
-                if(level <= 9){
+                if(level <= 8){
                     level++;
                     reInitialize();
                 }
             }
             if (keyCode == DOWN){
-                if (level >2){
+                if (level >1){
                     level --;
                     reInitialize();
                 }

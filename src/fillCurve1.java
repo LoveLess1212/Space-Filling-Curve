@@ -49,10 +49,10 @@ public class fillCurve1 extends PApplet{
         strokeWeight(2);
         for (int j = 1; j <  counter; j++) {
             /*
-            * Set the color of the image
-            * the j change from 0 to 360 directly proportional to 0-> path.lenth
-            * or (j/(path.length))*361-1
-            * */
+             * Set the color of the image
+             * the j change from 0 to 360 directly proportional to 0-> path.lenth
+             * or (j/(path.length))*361-1
+             * */
             float hue = map (j, 0 , total,0,360);
             stroke(hue,255,255); // set the color for the line
             line(path[j].x,path[j].y,path[j-1].x,path[j-1].y); // draw
@@ -61,7 +61,11 @@ public class fillCurve1 extends PApplet{
         if (counter >= total){
             counter = 0;
         } // reset the counter (animation) when the picture is finish
+        String shown_speed = String.format("%.2f",(speed));
+        text("Speed:" + shown_speed,0,60);
         text("Level: "+ level,0,40);
+
+
 
     }
     public void reInitialize(){

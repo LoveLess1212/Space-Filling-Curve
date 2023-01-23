@@ -17,12 +17,13 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
+import processing.event.MouseEvent;;
 
 public class fillCurve5 extends PApplet{
     int level =2 ;
     int N = (int)pow(2,level);
-    int total =  2 * (int)pow(4,level-1);
-    PVector[] path = new PVector[4 * (int)pow(4,10)];
+    int total =  3 * (int)pow(4,level-1);
+    PVector[] path = new PVector[3 * (int)pow(4,9)];
 
 
     public void settings(){
@@ -61,7 +62,10 @@ public class fillCurve5 extends PApplet{
         if (counter >= total){
             counter = 0;
         } // reset the counter (animation) when the picture is finish
+        String shown_speed = String.format("%.2f",(speed*60));
         text("Level: "+ level,0,40);
+        text("Speed:" + shown_speed + "line/s",0,60);
+
 
     }
     public void reInitialize(){
@@ -80,7 +84,7 @@ public class fillCurve5 extends PApplet{
         if (key == CODED){
 
             if (keyCode == UP){
-                if(level <= 9){
+                if(level <= 8){
                     level++;
                     reInitialize();
                 }
@@ -102,10 +106,11 @@ public class fillCurve5 extends PApplet{
     }// this one run when a keyboard is pressed
     public PVector Tri(int i){
         PVector[] point = {
-                new PVector(0,1),
-                new PVector(1,1)
+                new PVector(0,0),
+                new PVector(0.5F,0),
+                new PVector(1,0)
         };
-        int newIndexMod = i %2;
+        int newIndexMod = i %3;
         i = i /3;
         PVector v = point[newIndexMod];
 

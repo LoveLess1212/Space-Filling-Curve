@@ -7,7 +7,7 @@ public class fillCurve3 extends PApplet{
     //    int total =  14;
     int total =  4 * (int)pow(4,level-1);
 
-    PVector[] path = new PVector[ 4 * (int)pow(4,11-1)];
+    PVector[] path = new PVector[ 4 * (int)pow(4,9)];
 
 
     public void settings(){
@@ -42,6 +42,8 @@ public class fillCurve3 extends PApplet{
         if (counter >= total){
             counter = 0;
         }
+        String shown_speed = String.format("%.2f",(speed));
+        text("Speed:" + shown_speed,0,60);
         text("Level: "+ level,0,40);
 
     } // dont touch it until you done the algo :))))))))

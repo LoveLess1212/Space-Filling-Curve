@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.project;
-
 import static javafx.application.Application.launch;
 import processing.core.PApplet;
 
