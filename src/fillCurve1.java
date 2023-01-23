@@ -21,7 +21,7 @@ public class fillCurve1 extends PApplet{
     int level =2; // number of Iteration
     int N = (int) pow(2,level); // size of the background (for drawing)
     int total = N*N; // total line of drawing
-    PVector[] path = new PVector[(int)(pow(2,12)*pow(2,12))];
+    PVector[] path = new PVector[(int)(pow(2,12)*pow(2,10))];
 
     public void settings(){
         size(512,512); // set the size of the image
@@ -66,6 +66,7 @@ public class fillCurve1 extends PApplet{
     }
     public void reInitialize(){
         counter =0; // restart the counter
+
         /*
         * recalculate all the value of the line
         * */
@@ -80,13 +81,18 @@ public class fillCurve1 extends PApplet{
     }
     public void keyPressed(){
         if (key == CODED){
+
             if (keyCode == UP){
+                if(level <= 9){
                 level++;
                 reInitialize();
+                }
             }
             if (keyCode == DOWN){
+                if (level >2){
                 level --;
                 reInitialize();
+                }
             }
             if (keyCode == LEFT){
                 speed = (float) (speed * 0.9);
@@ -96,7 +102,7 @@ public class fillCurve1 extends PApplet{
             }
 
         }
-    }
+    }// this one run when a keyboard is pressed
     public PVector Hilbert (int i){
         PVector[] point = {
                 new PVector(0,0),

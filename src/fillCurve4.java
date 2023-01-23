@@ -17,29 +17,28 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
-import processing.event.MouseEvent;;
-
-public class fillCurve2 extends PApplet{
-    int level =2 ;
-    int N = (int)pow(2,level);
-    int total =  3 * (int)pow(4,level-1);
-    PVector[] path = new PVector[3 * (int)pow(4,10)];
-
+public class fillCurve4 extends PApplet{
+    int level =2; // number of Iteration
+    int N = (int) pow(2,level); // size of the background (for drawing)
+    int total = N*N; // total line of drawing
+    PVector[] path = new PVector[(int)(pow(2,12)*pow(2,10))];
 
     public void settings(){
-        int size = 512;
-        size(size,size);
+        size(512,512); // set the size of the image
         smooth();
     }
     public void setup(){
+        noStroke();
         colorMode(HSB,360,255,255);
         background(0);
         for (int i = 0; i < total; i++) {
-            path[i] = Tri(i);
-            float len = 2*(width /N) ; // fix later - value now: 128
+            path[i] = Hilbert(i);
+            float len = width/(float)N ;
             path[i].mult(len);
-            path[i].add(0,0);
+            path[i].add(len/2,len/2);
         }
+        surface.setTitle("Hilbert Curve!"); // name of the window
+        surface.setLocation(100, 100);
     }
 
     float counter = 0; // this one is to change the position(stage :V)(iteration) of the animation
@@ -66,17 +65,20 @@ public class fillCurve2 extends PApplet{
 
     }
     public void reInitialize(){
-        counter =0;
-        N = (int)pow(2,level);
-        total =  3 * (int)pow(4,level-1);
-        for (int i = 0; i < total; i++) {
-            path[i] = Tri(i);
-            float len = 2*(width /N) ;
-            path[i].mult(len);
-            path[i].add(0,0);
-    }
-    }
+        counter =0; // restart the counter
 
+        /*
+         * recalculate all the value of the line
+         * */
+        N = (int)pow(2,level);
+        total =  N*N;
+        for (int i = 0; i < total; i++) {
+            path[i] = Hilbert(i);
+            float len = (width /(float)N) ;
+            path[i].mult(len);
+            path[i].add(len/2,len/2);
+        }
+    }
     public void keyPressed(){
         if (key == CODED){
 
@@ -101,46 +103,43 @@ public class fillCurve2 extends PApplet{
 
         }
     }// this one run when a keyboard is pressed
-    public PVector Tri(int i){
+    public PVector Hilbert (int i){
         PVector[] point = {
-                new PVector(0,0),
-                new PVector(0.5F,0.5F),
-                new PVector(1,0)
+                new PVector(0,0.5F),
+                new PVector(0,1),
+                new PVector(1,1),
+                new PVector(1,0.5F)
         };
-        int newIndexMod = i %3;
-        i = i /3;
-        PVector v = point[newIndexMod];
+        int index = i &3;
+        PVector v = point[index];
 
         for (int j = 1; j < level; j++) {
-            int len = (int)pow(2,j-1); // now = 1,2
-
-            int newIndexDiv = i & 3;
-            if (newIndexDiv == 0) {
+            int len = (int)pow(2,j);
+            i = i >>>2;
+            index = i & 3;
+            if (index == 0 ){ // roltate left
                 float temp = v.x;
                 v.x = v.y;
                 v.y = temp;
             }
-            else if (newIndexDiv ==1) {
+            else if (index == 1){
                 v.y += len;
             }
-
-            else if (newIndexDiv ==2 ) {
+            else if (index == 2){
                 v.x +=len;
                 v.y +=len;
             }
-            else if (newIndexDiv ==3){
-                float temp = len - v.x; // len now = 1 , 2
-                v.x = 2* len-v.y  ;
+            else{ // roltate right
+                float temp = len - 1 - v.x; // len now =
+                v.x = 2* len-1-v.y  ;
                 v.y = temp;
-
             }
-            i = i >>>2;
         }
         return v;
     }
 
     public static void main(String[] args) {
-        String[] name = new String[] {"fillCurve2"};
+        String[] name = new String[] {"fillCurve4"};
         PApplet.main(name);
     }
 }

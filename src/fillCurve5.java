@@ -17,13 +17,12 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
-import processing.event.MouseEvent;;
 
-public class fillCurve2 extends PApplet{
+public class fillCurve5 extends PApplet{
     int level =2 ;
     int N = (int)pow(2,level);
-    int total =  3 * (int)pow(4,level-1);
-    PVector[] path = new PVector[3 * (int)pow(4,10)];
+    int total =  2 * (int)pow(4,level-1);
+    PVector[] path = new PVector[4 * (int)pow(4,10)];
 
 
     public void settings(){
@@ -74,7 +73,7 @@ public class fillCurve2 extends PApplet{
             float len = 2*(width /N) ;
             path[i].mult(len);
             path[i].add(0,0);
-    }
+        }
     }
 
     public void keyPressed(){
@@ -103,11 +102,10 @@ public class fillCurve2 extends PApplet{
     }// this one run when a keyboard is pressed
     public PVector Tri(int i){
         PVector[] point = {
-                new PVector(0,0),
-                new PVector(0.5F,0.5F),
-                new PVector(1,0)
+                new PVector(0,1),
+                new PVector(1,1)
         };
-        int newIndexMod = i %3;
+        int newIndexMod = i %2;
         i = i /3;
         PVector v = point[newIndexMod];
 
@@ -140,7 +138,7 @@ public class fillCurve2 extends PApplet{
     }
 
     public static void main(String[] args) {
-        String[] name = new String[] {"fillCurve2"};
+        String[] name = new String[] {"fillCurve5"};
         PApplet.main(name);
     }
 }

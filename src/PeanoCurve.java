@@ -4,10 +4,11 @@ import processing.core.PVector;
 public class PeanoCurve extends PApplet {
     int level =3;
     int N = (int) pow(3,level);
+//    int total = N*N;
     int total = N*N;
     PVector[] path = new PVector[total];
     public void settings(){
-        size(512,512);
+        size(1024,1024);
         smooth();
     }
     public void setup(){
@@ -15,9 +16,10 @@ public class PeanoCurve extends PApplet {
         background(0);
         for (int i = 0; i < total; i++) {
             path[i] = Peano(i);
-            float len = width/N ;
+            float len = 512/N ;
             path[i].mult(len);
-            path[i].add(len/2,len/2);
+//            path[i].add(len/2,len/2);
+//            path[i].add(2* len,len);
         }
     }
     float counter = 0;
@@ -26,20 +28,15 @@ public class PeanoCurve extends PApplet {
         stroke(255);
         noFill();
             beginShape();
-        for (int i = 0; i < counter; i++) {
+        for (int i = 0; i < total; i++) {
             vertex(path[i].x,path[i].y);
         }
          endShape();
 
-        for (int i = 0; i < counter; i++) {
+        for (int i = 0; i < total; i++) {
             text(i,path[i].x,path[i].y);
         }
-//        for (int j = 1; j < counter; j++) {
-////            float hue = map (j, 0 , path.length,0,360);
-////            stroke(hue,255,255);
-//            line(path[j].x,path[j].y,path[j-1].x,path[j-1].y);
-//        }
-        counter = (float) (counter + 0.1);
+        counter = (float) (counter +0.1);
         if (counter >= path.length){
             counter =0;
         }
@@ -60,44 +57,30 @@ public class PeanoCurve extends PApplet {
 
         PVector v = point[mod];
         for (int j = 1; j < level; j++) {
-        /*    switch (mod){
-                case 0:
-                    break;
-                case 1:
-                    v.x = 2 - v.x;
-                    v.y += nona * 3;
-                    break;
-                case 2:
-                    v.y += nona *3;
-                    break;
-                case 3:
-                    v.x = 2 - v.x + nona *3;
-                    break;
-                case 4:
-                    v.x += nona*3;
-                    break;
-                case 5:
-                    v.x
-
-            }*/
-            int nona = (int) (i/(pow(3,j+1)));
-            if(nona/3 ==1){
-                if(nona %2 ==1){
-                    v.y = pow(3,j+1) - v.y-1- (nona%3)*3;
-
+            int div= (int) (i/(pow(3,j+1)));
+            //int len = (int) (pow(3,level)+1);
+            if (div / 3 == 0){
+                v.y = pow(3,j+1) - v.y-1- (div%3)*3;
+                if(div == 1){
+                    v.x = 2-v.x;
                 }
-                else{
-                    v.y = pow(3,j+1)-1- v.y - (nona%3)*3 ;
-                    v.x = 2 - v.x;
+                v.x += 10;
+            }
+            else if (div / 3 == 1){
+                v.y = v.y+ (div%3)*3;
+                if(div %2 ==0 ){
+                    v.x = 2-v.x;
                 }
+                v.x += 10;
             }
-            else {
-                if(nona %2 ==1){
-                v.x = 2 - v.x;}
-                    v.y += (nona%3) * (3);
-            }
+            else if (div /3 == 2){
 
-            v.x += (nona/3) *3;
+                v.y = pow(3,j+1) - v.y-1- (div%3)*3;
+                if(div %2 ==1 ){
+                    v.x = 2-v.x;
+                }
+                v.x +=6*j+10;
+            }
         }
         return v;
     }
