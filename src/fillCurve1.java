@@ -107,14 +107,22 @@ public class fillCurve1 extends PApplet{
 
         }
     }// this one run when a keyboard is pressed
+
+
     public PVector Hilbert (int i){
+        /* in here we consider all the plane is just a grid
+         * for example
+         *   in the 1st level is 2*2
+         *   in the 2nd level is 4*4
+         * `...
+         * */
         PVector[] point = {
                 new PVector(0,0),
                 new PVector(0,1),
                 new PVector(1,1),
                 new PVector(1,0)
         };
-        int index = i &3;
+        int index = i &3; // get the quadrant
         PVector v = point[index];
 
         for (int j = 1; j < level; j++) {
