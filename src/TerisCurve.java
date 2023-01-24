@@ -17,13 +17,13 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
-import processing.event.MouseEvent;;
+;
 
-public class fillCurve2 extends PApplet{
-    int level =1 ;
+public class TerisCurve extends PApplet{
+    int level =2 ;
     int N = (int)pow(2,level);
     int total =  3 * (int)pow(4,level-1);
-    PVector[] path = new PVector[3 * (int)pow(4,10)];
+    PVector[] path = new PVector[3 * (int)pow(4,9)];
 
 
     public void settings(){
@@ -66,6 +66,7 @@ public class fillCurve2 extends PApplet{
         text("Speed:" + shown_speed,0,60);
         text("Level: "+ level,0,40);
 
+
     }
     public void reInitialize(){
         counter =0;
@@ -76,7 +77,7 @@ public class fillCurve2 extends PApplet{
             float len = 2*(width /N) ;
             path[i].mult(len);
             path[i].add(0,0);
-    }
+        }
     }
 
     public void keyPressed(){
@@ -89,7 +90,7 @@ public class fillCurve2 extends PApplet{
                 }
             }
             if (keyCode == DOWN){
-                if (level >1){
+                if (level >2){
                     level --;
                     reInitialize();
                 }
@@ -106,7 +107,7 @@ public class fillCurve2 extends PApplet{
     public PVector Tri(int i){
         PVector[] point = {
                 new PVector(0,0),
-                new PVector(0.5F,0.5F),
+                new PVector(0.5F,0),
                 new PVector(1,0)
         };
         int newIndexMod = i %3;
@@ -142,7 +143,7 @@ public class fillCurve2 extends PApplet{
     }
 
     public static void main(String[] args) {
-        String[] name = new String[] {"fillCurve2"};
+        String[] name = new String[] {"TerisCurve"};
         PApplet.main(name);
     }
 }

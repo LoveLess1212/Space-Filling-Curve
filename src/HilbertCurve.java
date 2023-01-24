@@ -17,7 +17,7 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class fillCurve1 extends PApplet{
+public class HilbertCurve extends PApplet{
     int level =2; // number of Iteration
     int N = (int) pow(2,level); // size of the background (for drawing)
     int total = N*N; // total line of drawing
@@ -42,7 +42,7 @@ public class fillCurve1 extends PApplet{
     }
 
     float counter = 0; // this one is to change the position(stage :V)(iteration) of the animation
-    float speed = 1; // this one is to change the speed of the animation
+    float speed = 0.5F; // this one is to change the speed of the animation
     public void draw(){
         background(0);
         stroke(255);
@@ -93,7 +93,7 @@ public class fillCurve1 extends PApplet{
                 }
             }
             if (keyCode == DOWN){
-                if (level >2){
+                if (level >1){
                 level --;
                 reInitialize();
                 }
@@ -151,7 +151,7 @@ public class fillCurve1 extends PApplet{
     }
 
     public static void main(String[] args) {
-        String[] name = new String[] {"fillCurve1"};
+        String[] name = new String[] {"HilbertCurve"};
         PApplet.main(name);
     }
 }

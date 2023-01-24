@@ -3,34 +3,31 @@ import processing.core.PFont;
 
 public class SierpinskiTri extends PApplet {
     final int length =700;
-    int level = 1;
     int max = 2;
-    PFont sourceLight;
     public void settings() {
         size(800, 800);
     }
     public void setup() {
-        colorMode(HSB,360,255,255);
-        sourceLight = createFont("Font/arial.ttf", 30);
-        textFont(sourceLight);
         noStroke();
+        noLoop();
     }
-    int counter =0;
+    float counter =0;
     public void draw(){
+        counter =0;
         background(0);
-        int count = (int ) (map(millis(),0,10000,1,10) % 10)+1;
-        divide(width/2-length/2,width/2+length*(sqrt(3)/4),length,1,count);
-        text("counter" +count ,0,40);
-        text("time: "+ millis(),0,70);
-
+        divide(width/2-length/2,width/2+length*(sqrt(3)/4),length,1,max);
+        fill(255);
+        text("level: " +max ,0,40);
     }
     @Override
     public void keyPressed() {
         if (key == CODED) {
-            if (keyCode == UP && max < 13) {
+            if (keyCode == UP && max < 8) {
                 max ++;
+                redraw();
             } else if (keyCode == DOWN && max > 1) {
                 max --;
+                redraw();
             }
         }
     }
@@ -49,9 +46,10 @@ public class SierpinskiTri extends PApplet {
     }
 
     public void tri(float x, float y, float length){
-        triangle(x,y,x+length,y,x+length/2,  (y-length*(float)(Math.sqrt(3)/2)));
-        fill(counter %360, 255,255);
-        counter++;
+        map(counter,0,pow(3,max),0,360);
+        fill(counter,255,255);
+        triangle(x,y,x+length,y,x+length/2, (y-length*(float)(Math.sqrt(3)/2)));
+        counter+= 0.1F;
     }
 
     public static void main(String[] passedArgs) {

@@ -1,8 +1,8 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class fillCurve3 extends PApplet{
-    int level =2;
+public class ZCurve extends PApplet{
+    int level =1;
     int N = (int)pow(2,level);
     //    int total =  14;
     int total =  4 * (int)pow(4,level-1);
@@ -27,7 +27,7 @@ public class fillCurve3 extends PApplet{
     }
 
     float counter = 0 ;
-    float speed = 1;
+    float speed = 0.5F;
     public void draw(){
         background(0);
         stroke(255);
@@ -72,7 +72,7 @@ public class fillCurve3 extends PApplet{
                 }
             }
             if (keyCode == DOWN){
-                if (level >2){
+                if (level >1){
                     level --;
                     reInitialize();
                 }
@@ -121,7 +121,7 @@ public class fillCurve3 extends PApplet{
     }
 
     public static void main(String[] args) {
-        String[] name = new String[] {"fillCurve3"};
+        String[] name = new String[] {"ZCurve"};
         PApplet.main(name);
     }
 }

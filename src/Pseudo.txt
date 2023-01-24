@@ -1,4 +1,4 @@
-int level = {Level of iteration user want};
+int level = {Level of iteration user want}; //
 int total = total lines of the curve;
 Point path[total];
 public void settings(){

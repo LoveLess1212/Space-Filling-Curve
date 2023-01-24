@@ -17,33 +17,32 @@
 import processing.core.PApplet;
 import processing.core.PVector;
 
-import processing.event.MouseEvent;;
-
-public class fillCurve5 extends PApplet{
-    int level =2 ;
-    int N = (int)pow(2,level);
-    int total =  3 * (int)pow(4,level-1);
-    PVector[] path = new PVector[3 * (int)pow(4,9)];
-
+public class TheRookCurve extends PApplet{
+    int level =1; // number of Iteration
+    int N = (int) pow(2,level); // size of the background (for drawing)
+    int total = N*N; // total line of drawing
+    PVector[] path = new PVector[(int)(pow(2,12)*pow(2,10))];
 
     public void settings(){
-        int size = 512;
-        size(size,size);
+        size(512,512); // set the size of the image
         smooth();
     }
     public void setup(){
+        noStroke();
         colorMode(HSB,360,255,255);
         background(0);
         for (int i = 0; i < total; i++) {
-            path[i] = Tri(i);
-            float len = 2*(width /N) ; // fix later - value now: 128
+            path[i] = Hilbert(i);
+            float len = width/(float)N ;
             path[i].mult(len);
-            path[i].add(0,0);
+            path[i].add(len/2,len/2);
         }
+        surface.setTitle("Hilbert Curve!"); // name of the window
+        surface.setLocation(100, 100);
     }
 
     float counter = 0; // this one is to change the position(stage :V)(iteration) of the animation
-    float speed = 1; // this one is to change the speed of the animation
+    float speed = 0.5F; // this one is to change the speed of the animation
     public void draw(){
         background(0);
         stroke(255);
@@ -62,35 +61,37 @@ public class fillCurve5 extends PApplet{
         if (counter >= total){
             counter = 0;
         } // reset the counter (animation) when the picture is finish
-        String shown_speed = String.format("%.2f",(speed*60));
+        String shown_speed = String.format("%.2f",(speed));
+        text("Speed:" + shown_speed,0,60);
         text("Level: "+ level,0,40);
-        text("Speed:" + shown_speed + "line/s",0,60);
-
 
     }
     public void reInitialize(){
-        counter =0;
+        counter =0; // restart the counter
+
+        /*
+         * recalculate all the value of the line
+         * */
         N = (int)pow(2,level);
-        total =  3 * (int)pow(4,level-1);
+        total =  N*N;
         for (int i = 0; i < total; i++) {
-            path[i] = Tri(i);
-            float len = 2*(width /N) ;
+            path[i] = Hilbert(i);
+            float len = (width /(float)N) ;
             path[i].mult(len);
-            path[i].add(0,0);
+            path[i].add(len/2,len/2);
         }
     }
-
     public void keyPressed(){
         if (key == CODED){
 
             if (keyCode == UP){
-                if(level <= 8){
+                if(level <= 9){
                     level++;
                     reInitialize();
                 }
             }
             if (keyCode == DOWN){
-                if (level >2){
+                if (level >1){
                     level --;
                     reInitialize();
                 }
@@ -104,46 +105,43 @@ public class fillCurve5 extends PApplet{
 
         }
     }// this one run when a keyboard is pressed
-    public PVector Tri(int i){
+    public PVector Hilbert (int i){
         PVector[] point = {
-                new PVector(0,0),
-                new PVector(0.5F,0),
-                new PVector(1,0)
+                new PVector(0,0.5F),
+                new PVector(0,1),
+                new PVector(1,1),
+                new PVector(1,0.5F)
         };
-        int newIndexMod = i %3;
-        i = i /3;
-        PVector v = point[newIndexMod];
+        int index = i &3;
+        PVector v = point[index];
 
         for (int j = 1; j < level; j++) {
-            int len = (int)pow(2,j-1); // now = 1,2
-
-            int newIndexDiv = i & 3;
-            if (newIndexDiv == 0) {
+            int len = (int)pow(2,j);
+            i = i >>>2;
+            index = i & 3;
+            if (index == 0 ){ // roltate left
                 float temp = v.x;
                 v.x = v.y;
                 v.y = temp;
             }
-            else if (newIndexDiv ==1) {
+            else if (index == 1){
                 v.y += len;
             }
-
-            else if (newIndexDiv ==2 ) {
+            else if (index == 2){
                 v.x +=len;
                 v.y +=len;
             }
-            else if (newIndexDiv ==3){
-                float temp = len - v.x; // len now = 1 , 2
-                v.x = 2* len-v.y  ;
+            else{ // roltate right
+                float temp = len - 1 - v.x; // len now =
+                v.x = 2* len-1-v.y  ;
                 v.y = temp;
-
             }
-            i = i >>>2;
         }
         return v;
     }
 
     public static void main(String[] args) {
-        String[] name = new String[] {"fillCurve5"};
+        String[] name = new String[] {"TheRookCurve"};
         PApplet.main(name);
     }
 }
