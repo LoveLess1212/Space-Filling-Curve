@@ -15,7 +15,7 @@ public class SierpinskiTri extends PApplet {
     public void draw(){
         counter =0;
         background(0);
-        divide(width/2-length/2,width/2+length*(sqrt(3)/4),length,1,max);
+        divide((float)width/2-(float)length/2,(float)width/2+length*(sqrt(3)/4),length,1,max);
         fill(255);
         text("level: " +max ,0,40);
     }

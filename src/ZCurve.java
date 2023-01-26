@@ -20,7 +20,7 @@ public class ZCurve extends PApplet{
         background(0);
         for (int i = 0; i < total; i++) {
             path[i] = Tri(i);
-            float len = (width /N) ; // fix later - value now: 128
+            float len = ((float)width /N) ; // fix later - value now: 128
             path[i].mult(len);
            path[i].add(len/2,len/2);
         }
@@ -119,7 +119,7 @@ public class ZCurve extends PApplet{
                 v.y += len;
 
             }
-            else if (index == 3){
+            else {
                 v.x +=len;
                 v.y +=len;
 

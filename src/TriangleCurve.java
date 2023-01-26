@@ -76,7 +76,7 @@ public class TriangleCurve extends PApplet{
         total =  3 * (int)pow(4,level-1);
         for (int i = 0; i < total; i++) {
             path[i] = Tri(i);
-            float len = 2*(width /N) ;
+            float len = 2*((float)width /N) ;
             path[i].mult(len);
             path[i].add(0,0);
     }
@@ -141,7 +141,7 @@ public class TriangleCurve extends PApplet{
                 v.x +=len;
                 v.y +=len;
             }
-            else if (newIndexDiv ==3){
+            else {
                 float temp = len - v.x; // len now = 1 , 2
                 v.x = 2* len-v.y  ;
                 v.y = temp;
