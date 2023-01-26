@@ -67,7 +67,11 @@ public class TerisCurve extends PApplet{
         text("Level: "+ level,0,40);
 
 
+
     }
+    /*
+     * recalculate all the value of the curve
+     */
     public void reInitialize(){
         counter =0;
         N = (int)pow(2,level);

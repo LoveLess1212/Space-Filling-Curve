@@ -42,7 +42,6 @@ public class SierpinskiTri extends PApplet {
             divide(x+length/4,y-length*(sqrt(3)/4),length/2,level+1,max);// at the right vertex
             divide(x+length/2,y,length/2,level+1,max);//start at the top vertex
         }
-
     }
 
     public void tri(float x, float y, float length){

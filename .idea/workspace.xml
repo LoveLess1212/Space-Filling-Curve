@@ -4,25 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="601068af-f1ac-464c-9d88-7a196925bfd5" name="Changes" comment="add pseudoCode and add more comments">
+    <list default="true" id="601068af-f1ac-464c-9d88-7a196925bfd5" name="Changes" comment="Change name and comment everything">
+      <change afterPath="$PROJECT_DIR$/src/ProcessingShowcase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/test/java/fillCurve2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/test/java/fillCurve2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/test/java/fillCurve3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/test/java/fillCurve3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Project/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PeanoCurve.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PeanoTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pseudo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pseudo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HilbertCurve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HilbertCurve.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SierpinskiTri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SierpinskiTri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sierpinski_Curve.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TeacherCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fillCurve1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HilbertCurve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fillCurve2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TriangleCurve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fillCurve3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZCurve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fillCurve4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TheRookCurve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fillCurve5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TerisCurve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/javafxTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testInteractive.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TerisCurve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TerisCurve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TheRookCurve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TheRookCurve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TriangleCurve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TriangleCurve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ZCurve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZCurve.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674554804780</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Change name and comment everything">
+      <created>1674562667292</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674562667292</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,7 +211,8 @@
     <MESSAGE value="little fix" />
     <MESSAGE value="&quot;little&quot; fix" />
     <MESSAGE value="add pseudoCode and add more comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pseudoCode and add more comments" />
+    <MESSAGE value="Change name and comment everything" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change name and comment everything" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

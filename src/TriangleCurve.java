@@ -67,6 +67,9 @@ public class TriangleCurve extends PApplet{
         text("Level: "+ level,0,40);
 
     }
+    /*
+     * recalculate all the value of the curve
+     */
     public void reInitialize(){
         counter =0;
         N = (int)pow(2,level);
@@ -103,13 +106,15 @@ public class TriangleCurve extends PApplet{
 
         }
     }// this one run when a keyboard is pressed
+    /* in here we consider all the plane is just a grid
+     * for example
+     *   in the 1st level is 2*2
+     *   in the 2nd level is 4*4
+     * `...
+     * Input: index of the node
+     * */
     public PVector Tri(int i){
-        /* in here we consider all the plane is just a grid
-         * for example
-         *   in the 1st level is 2*2
-         *   in the 2nd level is 4*4
-         * `...
-         * */
+
         PVector[] point = {
                 new PVector(0,0),
                 new PVector(0.5F,0.5F),

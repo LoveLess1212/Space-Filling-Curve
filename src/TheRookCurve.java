@@ -66,12 +66,13 @@ public class TheRookCurve extends PApplet{
         text("Level: "+ level,0,40);
 
     }
+    /*
+     * recalculate all the value of the curve
+     */
     public void reInitialize(){
         counter =0; // restart the counter
 
-        /*
-         * recalculate all the value of the line
-         * */
+
         N = (int)pow(2,level);
         total =  N*N;
         for (int i = 0; i < total; i++) {

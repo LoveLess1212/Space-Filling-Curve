@@ -57,6 +57,7 @@ public class HilbertCurve extends PApplet{
             stroke(hue,255,255); // set the color for the line
             line(path[j].x,path[j].y,path[j-1].x,path[j-1].y); // draw
         }
+
         counter+= speed; // using this one to increase speed of the animation
         if (counter >= total){
             counter = 0;
@@ -68,12 +69,13 @@ public class HilbertCurve extends PApplet{
 
 
     }
+    /*
+     * recalculate all the value of the curve
+     */
     public void reInitialize(){
         counter =0; // restart the counter
 
-        /*
-        * recalculate all the value of the line
-        * */
+
         N = (int)pow(2,level);
         total =  N*N;
         for (int i = 0; i < total; i++) {
@@ -108,14 +110,15 @@ public class HilbertCurve extends PApplet{
         }
     }// this one run when a keyboard is pressed
 
-
+    /* in here we consider all the plane is just a grid
+     * for example
+     *   in the 1st level is 2*2
+     *   in the 2nd level is 4*4
+     * `...
+     * Input: index of the node
+     * */
     public PVector Hilbert (int i){
-        /* in here we consider all the plane is just a grid
-         * for example
-         *   in the 1st level is 2*2
-         *   in the 2nd level is 4*4
-         * `...
-         * */
+
         PVector[] point = {
                 new PVector(0,0),
                 new PVector(0,1),
