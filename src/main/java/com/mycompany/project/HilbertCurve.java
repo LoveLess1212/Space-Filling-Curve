@@ -4,7 +4,7 @@ package com.mycompany.project;
 * Hilbert Curve Animation V1
 * Author: 1. Phi Dinh Van Toan
 *         2. Nguyen Khac Hoang
-*         3. Duy :v Quen ten r
+*         3. Nguyen Truong duy
 * Day created: 16.12.2022
 * Last update: 20.01.2023
 * Description: Create Hilbert Curve(space filling) using iteration method
