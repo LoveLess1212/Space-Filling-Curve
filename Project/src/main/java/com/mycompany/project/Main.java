@@ -1,20 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.project;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import javafx.application.Application;
 import static javafx.application.Application.launch;
 import processing.core.PApplet;
+import processing.javafx.*;
 
-/**
- *
- * @author ACER
- */
 public class Main {
-    public static void main(String[] args) {
-        PApplet.main(fillCurve1.class);
-        //launch();
-        
+               
+
     
-    }    
+    public static void main(String[] args) {
+        
+        PApplet sketch = new fillCurve1();
+        String[] processingArgs = {""};
+        PApplet.runSketch(processingArgs,sketch);   
+        
+    }
 }

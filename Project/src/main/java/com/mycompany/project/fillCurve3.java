@@ -1,68 +1,21 @@
 package com.mycompany.project;
 
-import java.util.Stack;
-import javafx.application.Application;
-import javafx.scene.canvas.Canvas;
 import processing.core.PApplet;
-import static processing.core.PApplet.cos;
-import static processing.core.PApplet.pow;
-import static processing.core.PApplet.radians;
-import static processing.core.PApplet.sin;
-import processing.core.PFont;
-import processing.core.PVector;
-import processing.core.PSurface;
-import processing.javafx.PSurfaceFX;
+import java.util.Stack;
 
+public class fillCurve3 extends PApplet {
 
-
-
-
-public class fillCurve1 extends PApplet {
-    
     float x, y;
     float angle;
-    float depth = 4;
+    int depth = 4;
+    int total = (int) pow(4,depth);
     int totalSteps;
     int currentStep;
     
-    int frameRate = 300; // set the initial frame rate
-@Override
-    protected PSurface initSurface() {
-        g = createPrimaryGraphics();
-        PSurface genericSurface = g.createSurface();
-        PSurfaceFX fxSurface = (PSurfaceFX) genericSurface;
+    int frameRate = 200; // set the initial frame rate
 
-        fxSurface.sketch = this;
-
-        App.surface = fxSurface;     
-        PrimarySnowflakeController.surface = fxSurface;
-        
-        
-            
-     
-        new Thread(new Runnable() {
-        public void run() {
-            Application.launch(App.class);
-        }
-    }).start();
-
-    while (fxSurface.stage == null) {
-        try {
-            Thread.sleep(5);
-        } catch (InterruptedException e) {
-        }
-    }
-
-    
-        this.surface = fxSurface;
-        Canvas canvas = (Canvas) surface.getNative();
-        
-        return surface;
-    
-    }
-    
     public void settings() {
-        size(800, 800,FX2D);
+        size(600, 600);
         smooth();
         
         
@@ -71,18 +24,22 @@ public class fillCurve1 extends PApplet {
     public void setup() {
         //noStroke();
         //colorMode(HSB,360,255,255);
-        PrimarySnowflakeController.p = this;
         background(0);
         angle = radians(60);
-        x = 180;
-        y = height + 97;
+        x = width - 150;
+        y = height + 150;
         translate(x - 300, y - 300);
         String curveString = applyRules("A", depth);
         totalSteps = curveString.length();
         currentStep = 0;
         frameRate(frameRate); // set the frame rate
-    }
+        colorMode(HSB,360,255,255);
 
+        surface.setTitle("Gosper Curve!"); // name of the window
+//        surface.setLocation(100, 100);
+        surface.setAlwaysOnTop(true);
+    }
+    float counter = 0;
     public void draw() {
        
         if (currentStep < totalSteps) {
@@ -91,15 +48,17 @@ public class fillCurve1 extends PApplet {
             String curveString = applyRules("A", depth);
             drawString(curveString.charAt(currentStep));
             currentStep++;
+            
         } else {
             
             currentStep = 0;
             background(0);
-            x = 180;
-            y = height + 97;
             translate(x - 300, y - 300); // reset the origin to the center of the frame
-            
+            x = width - 150;
+            y = height + 150;
         }
+       counter ++;
+       if(counter >= totalSteps)counter =0;
     }
 
     public void keyPressed() {
@@ -109,9 +68,15 @@ public class fillCurve1 extends PApplet {
         if (key == '-') {
             frameRate(frameRate -= 10); // decrease the frame rate when the "-" key is pressed
         }
+       
+        if (key == ENTER){
+            this.getSurface().pauseThread();
+            this.getSurface().setVisible(false);
+        }
+        
     }
 
-    public String applyRules(String s, float depth) {
+    public String applyRules(String s, int depth) {
         if (depth == 0) {
             return s;
         }
@@ -131,10 +96,11 @@ public class fillCurve1 extends PApplet {
 
     public void drawString(char c) {
         Stack<Turtle> stack = new Stack<Turtle>();
-          stroke(153, 187, 255);
-          strokeWeight((float) 1);
+          float hue = map (counter, 0 , totalSteps,0,360);
+          stroke(hue,255,255);
+          strokeWeight(2);
           
-        float len = pow((float) 2.4, (float) (depth - 2.2));
+        float len = pow(3, depth - 2);
         if (c == 'A' || c == 'B') {
             line(x - width / 2, y - height / 2, x - width / 2 + len * cos(angle), y - height / 2 + len * sin(angle));
             x += len * cos(angle);

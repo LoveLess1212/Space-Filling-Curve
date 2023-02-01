@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <VBox fx:id="root" alignment="CENTER" prefHeight="703.0" prefWidth="1335.0" spacing="20.0" style="-fx-border-color: black; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.project.PrimarySnowflakeController">
@@ -38,7 +39,7 @@
                               <Insets left="10.0" />
                            </VBox.margin>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="258.0" style="-fx-background-radius: 0;" styleClass="pane" stylesheets="@style.css">
+                        <VBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="314.0" style="-fx-background-radius: 0;" styleClass="pane" stylesheets="@style.css">
                            <children>
                               <Label text="Curve" textAlignment="RIGHT" textFill="#150202">
                                  <font>
@@ -63,7 +64,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </TextField>
-                              <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="98.0" stylesheets="@style.css" text="summit" textFill="WHITE">
+                              <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="106.0" stylesheets="@style.css" text="summit" textFill="WHITE">
                                  <font>
                                     <Font name="Serif Regular" size="18.0" />
                                  </font>
@@ -74,53 +75,35 @@
                               </Button>
                            </children>
                         </HBox>
-                        <VBox fx:id="chosenAnimation" alignment="CENTER" prefHeight="254.0" prefWidth="314.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: 10;" stylesheets="@style.css">
+                        <VBox fx:id="chosenAnimation" alignment="CENTER" prefHeight="298.0" prefWidth="314.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: 10;" stylesheets="@style.css">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Pane prefHeight="231.0" prefWidth="246.0">
+                              <Pane prefHeight="288.0" prefWidth="290.0">
                                  <children>
-                                    <StackPane fx:id="processing" layoutX="26.0" prefHeight="237.0" prefWidth="237.0" />
+                                    <StackPane fx:id="processing" layoutX="8.0" layoutY="5.0" prefHeight="264.0" prefWidth="273.0" />
                                  </children>
                               </Pane>
                            </children>
                         </VBox>
-                        <Pane prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: white;">
+                        <Pane prefHeight="34.0" prefWidth="314.0" style="-fx-background-color: white;">
                            <children>
-                              <Label fx:id="animationName" layoutX="85.0" layoutY="-2.0" prefHeight="32.0" prefWidth="149.0" text="Snowflake" textAlignment="RIGHT" textFill="#150202">
+                              <Label fx:id="animationName" layoutX="85.0" layoutY="-2.0" prefHeight="32.0" prefWidth="149.0" text="Animation" textAlignment="RIGHT" textFill="#150202">
                                  <font>
                                     <Font name="SimSun" size="30.0" />
                                  </font>
                               </Label>
                            </children>
                         </Pane>
-                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="270.0" style="-fx-background-radius: 60;" styleClass="boxpane" stylesheets="@style.css">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: white;" styleClass="seach-button" stylesheets="@style.css" text="play" textFill="#1e1d1d">
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" right="20.0" top="10.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="SimSun" size="16.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="primaryButton" onAction="#switchToSecondary" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: white;" styleClass="seach-button" stylesheets="@style.css" text="zoom">
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="SimSun" size="16.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="10.0" right="10.0" top="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <ImageView fitHeight="155.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="89.0" fitWidth="312.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-18%20173013.JPG" />
+                              <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20183444.JPG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="89.0" fitWidth="312.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20183444.JPG" />
                            </image>
                         </ImageView>
                      </children>
@@ -129,12 +112,12 @@
                <center>
                   <VBox prefHeight="703.0" prefWidth="986.0" style="-fx-background-color: #CAFFFA; -fx-border-color: black; -fx-border-width: 3;" BorderPane.alignment="CENTER">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="56.0" prefWidth="959.0">
+                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="960.0">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </VBox.margin>
                            <children>
-                              <Label prefHeight="23.0" prefWidth="66.0" text="team:" textAlignment="RIGHT" textFill="#333232">
+                              <Label prefHeight="23.0" prefWidth="86.0" text="team:" textAlignment="RIGHT" textFill="#333232">
                                  <font>
                                     <Font name="Sitka Text" size="18.0" />
                                  </font>
@@ -144,34 +127,44 @@
                                     <Font name="SimSun" size="20.0" />
                                  </font>
                               </Label>
-                              <Pane prefHeight="86.0" prefWidth="716.0" HBox.hgrow="ALWAYS">
+                              <Pane prefHeight="78.0" prefWidth="690.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Label layoutX="630.0" layoutY="23.0" prefHeight="23.0" prefWidth="104.0" text="setting" textAlignment="RIGHT" textFill="#1e1d1d">
+                                    <ImageView fitHeight="85.0" fitWidth="100.0" layoutX="235.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20163526.JPG" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="85.0" fitWidth="131.0" layoutX="356.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20163852.JPG" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="284.0" layoutY="23.0" prefHeight="43.0" prefWidth="144.0" text="Project" textAlignment="RIGHT" textFill="#080000">
                                        <font>
-                                          <Font name="SimSun" size="20.0" />
+                                          <Font name="SimSun" size="40.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </Pane>
-                              <ImageView fitHeight="69.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="88.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-18%20130039.JPG" />
+                                    <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20162746.JPG" />
                                  </image>
                               </ImageView>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="171.0" prefWidth="1014.0" style="-fx-background-color: white;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="171.0" prefWidth="999.0" style="-fx-background-color: white;">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="171.0" prefWidth="353.0">
+                              <HBox alignment="CENTER" prefHeight="171.0" prefWidth="341.0">
                                  <children>
                                     <VBox alignment="CENTER" prefHeight="171.0" prefWidth="142.0">
                                        <HBox.margin>
                                           <Insets left="5.0" />
                                        </HBox.margin>
                                        <children>
-                                          <VBox alignment="CENTER" prefHeight="115.0" prefWidth="160.0" style="-fx-background-color: FFE2B2;">
+                                          <VBox alignment="CENTER" prefHeight="115.0" prefWidth="163.0" style="-fx-background-color: FFE2B2;">
                                              <children>
-                                                <Button fx:id="primaryButton1" alignment="TOP_LEFT" onAction="#switchToSecondary" prefHeight="36.0" prefWidth="142.0" styleClass="transparent" stylesheets="@style.css" text="Projects">
+                                                <Button fx:id="primaryButton1" alignment="TOP_LEFT" prefHeight="36.0" prefWidth="142.0" styleClass="transparent" stylesheets="@style.css" text="Projects">
                                                    <font>
                                                       <Font name="Sitka Text" size="17.0" />
                                                    </font>
@@ -185,7 +178,7 @@
                                           </VBox>
                                        </children>
                                     </VBox>
-                                    <ImageView fitHeight="115.0" fitWidth="205.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="120.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-18%20130847.JPG" />
                                        </image>
@@ -206,7 +199,7 @@
                                           <Insets left="5.0" />
                                        </HBox.margin>
                                        <children>
-                                          <VBox alignment="CENTER" prefHeight="115.0" prefWidth="138.0" style="-fx-background-color: #FFB2B2;">
+                                          <VBox alignment="CENTER" prefHeight="115.0" prefWidth="186.0" style="-fx-background-color: #FFB2B2;">
                                              <children>
                                                 <Button fx:id="primaryButton11" alignment="TOP_LEFT" prefHeight="35.0" prefWidth="157.0" styleClass="transparent" stylesheets="@style.css" text="Documentation">
                                                    <font>
@@ -236,14 +229,14 @@
                                  </HBox.margin>
                               </HBox>
                               <Pane prefHeight="171.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                              <HBox alignment="CENTER" prefHeight="171.0" prefWidth="294.0">
+                              <HBox alignment="CENTER" prefHeight="171.0" prefWidth="289.0">
                                  <children>
                                     <VBox alignment="CENTER" prefHeight="171.0" prefWidth="118.0">
                                        <HBox.margin>
                                           <Insets left="5.0" />
                                        </HBox.margin>
                                        <children>
-                                          <VBox alignment="CENTER_RIGHT" prefHeight="115.0" prefWidth="119.0" style="-fx-background-color: #BAB2FF;">
+                                          <VBox alignment="CENTER_RIGHT" prefHeight="115.0" prefWidth="192.0" style="-fx-background-color: #BAB2FF;">
                                              <children>
                                                 <Button fx:id="primaryButton111" alignment="CENTER" prefHeight="35.0" prefWidth="129.0" styleClass="transparent" stylesheets="@style.css" text="Profile">
                                                    <font>
@@ -276,16 +269,132 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="186.0" prefWidth="999.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <AnchorPane prefHeight="446.0" prefWidth="1012.0">
+                              <AnchorPane prefHeight="435.0" prefWidth="1000.0">
                                  <children>
-                                    <VBox alignment="CENTER" layoutX="69.0" layoutY="42.0" prefHeight="142.0" prefWidth="142.0" style="-fx-background-color: #b4dbdc; -fx-background-radius: 180;" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="50.0">
+                                    <ImageView fitHeight="290.0" fitWidth="219.0" layoutX="3.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20194223.JPG" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="263.0" fitWidth="239.0" layoutX="760.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                       <image>
+                                          <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20194223.JPG" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="377.0" fitWidth="412.0" layoutX="83.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20194942.JPG" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="409.0" fitWidth="371.0" layoutX="404.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20194942.JPG" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="325.0" fitWidth="285.0" layoutX="702.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20194942.JPG" />
+                                       </image>
+                                    </ImageView>
+                                    <Circle fx:id="c1" fill="#1f93ff03" layoutX="167.0" layoutY="118.0" opacity="0.37" radius="94.0" stroke="#bccef8" strokeType="INSIDE" strokeWidth="6.0" style="-fx-stroke-dash-array: 90;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="739.0" />
+                                    <Circle fx:id="c5" fill="#1f93ff03" layoutX="267.0" layoutY="320.0" opacity="0.37" radius="94.0" stroke="#b4dbdc" strokeType="INSIDE" strokeWidth="6.0" style="-fx-stroke-dash-array: 90;" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="24.0" />
+                                    <Circle fx:id="c2" fill="#1f93ff03" layoutX="387.0" layoutY="300.2" opacity="0.37" radius="94.0" stroke="#f8c3af" strokeType="INSIDE" strokeWidth="6.0" style="-fx-stroke-dash-array: 90;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="293.0" />
+                                    <Circle fx:id="c3" fill="#1f93ff03" layoutX="187.0" layoutY="138.0" opacity="0.37" radius="94.0" stroke="#6e85b7" strokeType="INSIDE" strokeWidth="6.0" style="-fx-stroke-dash-array: 90;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="543.0" />
+                                    <Circle fx:id="c4" fill="#1f93ff03" layoutX="197.0" layoutY="148.0" opacity="0.37" radius="94.0" stroke="#fbaccc" strokeType="INSIDE" strokeWidth="6.0" style="-fx-stroke-dash-array: 90;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="793.0" />
+                                    <Circle fx:id="c6" fill="#1f93ff03" layoutX="397.0" layoutY="320.0" opacity="0.37" radius="94.0" stroke="#eb455f" strokeType="INSIDE" strokeWidth="6.0" style="-fx-stroke-dash-array: 90;" AnchorPane.leftAnchor="423.0" AnchorPane.topAnchor="24.0" />
+                                    <Circle fx:id="c7" fill="#1f93ff03" layoutX="407.0" layoutY="330.0" opacity="0.37" radius="94.0" stroke="#b6e2a1" strokeType="INSIDE" strokeWidth="6.0" style="-fx-stroke-dash-array: 90;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="673.0" AnchorPane.topAnchor="24.0" />
+                                    <VBox alignment="CENTER" layoutX="69.0" layoutY="42.0" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #BCCEF8; -fx-background-radius: 180;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="70.0">
                                        <children>
-                                          <ImageView fx:id="projectImg" fitHeight="74.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="projectImg" fitHeight="74.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20185847.JPG" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="Hibert" alignment="TOP_LEFT" onAction="#changeScreen2" prefHeight="36.0" prefWidth="138.0" styleClass="transparent" stylesheets="@style.css" text="  Hibert Curve" textAlignment="CENTER" wrapText="true">
+                                             <font>
+                                                <Font name="Sitka Text" size="16.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="371.0" layoutY="50.0" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #F8C3AF; -fx-background-radius: 180;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="320.0">
+                                       <children>
+                                          <ImageView fx:id="projectImg1" fitHeight="72.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20190614.JPG" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="tri" alignment="TOP_LEFT" onAction="#changeScreen6" prefHeight="36.0" prefWidth="132.0" styleClass="transparent" stylesheets="@style.css" text=" Sierpinski Tri" textAlignment="CENTER" textFill="#15b5b0" wrapText="true">
+                                             <font>
+                                                <Font name="Sitka Text" size="16.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="606.0" layoutY="44.0" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #6E85B7; -fx-background-radius: 180;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="570.0">
+                                       <children>
+                                          <ImageView fx:id="projectImg11" fitHeight="74.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20191140.JPG" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="Rook" alignment="TOP_LEFT" onAction="#changeScreen3" prefHeight="36.0" prefWidth="138.0" styleClass="transparent" stylesheets="@style.css" text="    The Rook" textAlignment="CENTER" textFill="#28bbb8" wrapText="true">
+                                             <font>
+                                                <Font name="Sitka Text" size="17.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="813.0" layoutY="44.0" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #FBACCC; -fx-background-radius: 180;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="820.0">
+                                       <children>
+                                          <ImageView fx:id="projectImg111" fitHeight="74.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20185024.JPG" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="Z" alignment="TOP_LEFT" onAction="#changeScreen5" prefHeight="36.0" prefWidth="138.0" styleClass="transparent" stylesheets="@style.css" text="      Z Curve" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                             <font>
+                                                <Font name="Sitka Text" size="17.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="95.0" layoutY="231.0" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #b4dbdc; -fx-background-radius: 180;" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="50.0">
+                                       <children>
+                                          <ImageView fx:id="projectImg2" fitHeight="74.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-18%20190325.JPG" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="primaryButton12" alignment="TOP_LEFT" prefHeight="36.0" prefWidth="138.0" styleClass="transparent" stylesheets="@style.css" text="   Snowflake" textAlignment="CENTER" wrapText="true">
+                                          <Button fx:id="snowflake" alignment="TOP_LEFT" onAction="#changeScreen1" prefHeight="36.0" prefWidth="138.0" styleClass="transparent" stylesheets="@style.css" text="   Snowflake" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                             <font>
+                                                <Font name="Sitka Text" size="17.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="387.0" layoutY="253.0" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #EB455F; -fx-background-radius: 180;" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="50.0">
+                                       <children>
+                                          <ImageView fx:id="projectImg21" fitHeight="74.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20190917.JPG" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="Tetris" alignment="TOP_LEFT" onAction="#changeScreen7" prefHeight="36.0" prefWidth="138.0" styleClass="transparent" stylesheets="@style.css" text="  Tetris Curve" textAlignment="CENTER" textFill="#fabec0" wrapText="true">
+                                             <font>
+                                                <Font name="Sitka Text" size="17.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="397.0" layoutY="263.0" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #B6E2A1; -fx-background-radius: 180;" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="50.0">
+                                       <children>
+                                          <ImageView fx:id="projectImg211" fitHeight="73.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-28%20191307.JPG" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="X" alignment="TOP_LEFT" onAction="#changeScreen4" prefHeight="36.0" prefWidth="138.0" styleClass="transparent" stylesheets="@style.css" text="     X Curve" textAlignment="CENTER" textFill="#299ebf" wrapText="true">
                                              <font>
                                                 <Font name="Sitka Text" size="17.0" />
                                              </font>

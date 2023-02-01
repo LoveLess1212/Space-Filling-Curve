@@ -1,4 +1,6 @@
 
+
+
 package com.mycompany.project;
 
 
@@ -62,7 +64,7 @@ public class PrimaryController implements Initializable {
     }
 
     @FXML
-    private void switchToSecondary(ActionEvent event) throws IOException {
+    private void changeScreen(ActionEvent event) throws IOException {
         App.setRoot("primarySnowflake");
     } 
     
@@ -79,5 +81,4 @@ public class PrimaryController implements Initializable {
 
     
 }
-
 

@@ -120,7 +120,7 @@
                                     <Font name="SimSun" size="16.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="primaryButton" onAction="#switchToSecondary" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: white;" styleClass="seach-button" stylesheets="@style.css" text="zoom">
+                              <Button fx:id="primaryButton" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: white;" styleClass="seach-button" stylesheets="@style.css" text="zoom">
                                  <HBox.margin>
                                     <Insets bottom="10.0" top="10.0" />
                                  </HBox.margin>
@@ -186,7 +186,7 @@
                                        <children>
                                           <VBox alignment="CENTER" prefHeight="115.0" prefWidth="160.0" style="-fx-background-color: FFE2B2;">
                                              <children>
-                                                <Button fx:id="primaryButton1" alignment="TOP_LEFT" onAction="#switchToSecondary" prefHeight="36.0" prefWidth="142.0" styleClass="transparent" stylesheets="@style.css" text="Projects">
+                                                <Button fx:id="primaryButton1" alignment="TOP_LEFT" prefHeight="36.0" prefWidth="142.0" styleClass="transparent" stylesheets="@style.css" text="Projects">
                                                    <font>
                                                       <Font name="Sitka Text" size="17.0" />
                                                    </font>
@@ -223,7 +223,7 @@
                                        <children>
                                           <VBox alignment="CENTER" prefHeight="115.0" prefWidth="138.0" style="-fx-background-color: #FFB2B2;">
                                              <children>
-                                                <Button fx:id="primaryButton11" alignment="TOP_LEFT" onAction="#switchToSecondary" prefHeight="35.0" prefWidth="157.0" styleClass="transparent" stylesheets="@style.css" text="Documentation">
+                                                <Button fx:id="primaryButton11" alignment="TOP_LEFT" prefHeight="35.0" prefWidth="157.0" styleClass="transparent" stylesheets="@style.css" text="Documentation">
                                                    <font>
                                                       <Font name="Sitka Text" size="17.0" />
                                                    </font>
@@ -260,7 +260,7 @@
                                        <children>
                                           <VBox alignment="CENTER_RIGHT" prefHeight="115.0" prefWidth="136.0" style="-fx-background-color: #BAB2FF;">
                                              <children>
-                                                <Button fx:id="primaryButton111" alignment="CENTER" onAction="#switchToSecondary" prefHeight="35.0" prefWidth="129.0" styleClass="transparent" stylesheets="@style.css" text="Profile">
+                                                <Button fx:id="primaryButton111" alignment="CENTER" prefHeight="35.0" prefWidth="129.0" styleClass="transparent" stylesheets="@style.css" text="Profile">
                                                    <font>
                                                       <Font name="Sitka Text" size="17.0" />
                                                    </font>
@@ -300,7 +300,7 @@
                                                 <Image url="@../../../../../../../../GUI-javafx/image/Screenshot%202023-01-18%20190325.JPG" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="primaryButton12" alignment="TOP_LEFT" onAction="#switchToSecondary" prefHeight="36.0" prefWidth="138.0" styleClass="transparent" stylesheets="@style.css" text="   Snowflake" textAlignment="CENTER" wrapText="true">
+                                          <Button fx:id="primaryButton12" alignment="TOP_LEFT" onAction="#changeScreen" prefHeight="36.0" prefWidth="138.0" styleClass="transparent" stylesheets="@style.css" text="   Snowflake" textAlignment="CENTER" wrapText="true">
                                              <font>
                                                 <Font name="Sitka Text" size="17.0" />
                                              </font>

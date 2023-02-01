@@ -7,23 +7,26 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import processing.core.PApplet;
 import processing.javafx.PSurfaceFX;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
-
-        
+ 
     public static PSurfaceFX surface;
-
+    public static Scene scene;
+    public static Stage stage;
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("primarySnowflake.fxml"));
         Parent root = loader.load();
         PrimarySnowflakeController.stage = primaryStage;
-        Scene scene = new Scene(root, 1280, 720);
+        scene = new Scene(root, 1400, 720);
 
         
         primaryStage.setScene(scene);
@@ -33,7 +36,7 @@ public class App extends Application {
         PrimarySnowflakeController.stage = primaryStage;
     } 
     
-    private static Scene scene;
+    
 
     /*@Override
     public void start(Stage stage) throws IOException {
@@ -52,6 +55,4 @@ public class App extends Application {
     }
     
 
-}  
-
-
+} 
