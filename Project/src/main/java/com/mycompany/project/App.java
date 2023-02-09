@@ -7,52 +7,70 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import processing.core.PApplet;
 import processing.javafx.PSurfaceFX;
 
 /**
- * JavaFX App
+ *
+ * App class to run the JavaFX application
  */
 public class App extends Application {
- 
+
+// Variables to hold the surface, scene and stage
     public static PSurfaceFX surface;
     public static Scene scene;
     public static Stage stage;
+
+    /**
+     *
+     * Start method to set up the scene and display the primary stage
+     *
+     * @param primaryStage The main window of the application
+     *
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("primarySnowflake.fxml"));
+// Load the FXML file and set it as the root node of the scene
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Project.fxml"));
         Parent root = loader.load();
-        PrimarySnowflakeController.stage = primaryStage;
+
+// Set the stage in the ProjectController class
+        ProjectController.stage = primaryStage;
+
+// Create the scene and set its size
         scene = new Scene(root, 1400, 720);
 
-        
+// Set the scene in the primary stage and display it
         primaryStage.setScene(scene);
         primaryStage.show();
 
+// Set the stage in the PSurfaceFX class and the ProjectController class
         surface.stage = primaryStage;
-        PrimarySnowflakeController.stage = primaryStage;
-    } 
-    
-    
-
-    /*@Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primarySnowflake"), 1335, 703);
-        stage.setScene(scene);
-        stage.show();
+        ProjectController.stage = primaryStage;
     }
-        */
+
+    /**
+     *
+     * Method to change the root node of the scene
+     *
+     * @param fxml The name of the FXML file to be loaded
+     * @throws IOException
+     */
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
+    /**
+     *
+     * Method to load the FXML file and return its root node
+     *
+     * @param fxml The name of the FXML file to be loaded
+     * @return The root node of the FXML file
+     * @throws IOException
+     */
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load(); 
+        return fxmlLoader.load();
     }
-    
-
-} 
+}
