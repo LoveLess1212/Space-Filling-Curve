@@ -4,16 +4,17 @@ package com.mycompany.project;
  * Hilbert Curve Animation V1
  * Author: 1. Phi Dinh Van Toan
  *         2. Nguyen Khac Hoang
- *         3. Duy :v Quen ten r
+ *         3. Nguyen Truong Duy
  * Day created: 16.12.2022
- * Last update: 20.01.2023
- * Description: Create Hilbert Curve(space filling) using iteration method
+ * Last update: 10.02.2023
+ * Description: Create Triangle Curve(space filling) using iteration method
  *
  * Function: press
  *   1. "ArrowUp" to increase the level of Iteration
  *   2. "ArrowDown" to decrease the level of Iteration
  *   3. "ArrowRight" to increase the level of Iteration
  *   4. "ArrowLeft" to decrease the speed of the animation
+ *   5. "Enter" to exit the speed of the animation
  * */
 
 import processing.core.PApplet;
@@ -41,7 +42,7 @@ public class TriangleCurve extends PApplet{
             float len = 2*(width /N) ; // fix later - value now: 128
             path[i].mult(len);
             path[i].add(0,0);
-            surface.setTitle("Triangle Curve!"); // name of the window
+            surface.setTitle("X Curve!"); // name of the window
 //        surface.setLocation(100, 100);
             surface.setAlwaysOnTop(true);   
         }

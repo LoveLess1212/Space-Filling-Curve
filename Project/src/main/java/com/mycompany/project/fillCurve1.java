@@ -6,11 +6,13 @@ import com.mycompany.project.fillCurve3.Turtle;
 
 import javafx.application.Application;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.image.Image;
 import processing.core.PApplet;
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.pow;
 import static processing.core.PApplet.radians;
 import static processing.core.PApplet.sin;
+import processing.core.PImage;
 import processing.core.PSurface;
 import processing.javafx.PSurfaceFX;
 
@@ -28,7 +30,7 @@ public class fillCurve1 extends PApplet {
     float depth = 4;
     int totalSteps;
     int currentStep;
-
+    PImage icon;
     int frameRate = 300; // set the initial frame rate
 
     /*
@@ -83,6 +85,9 @@ public class fillCurve1 extends PApplet {
     public void setup() {
         // noStroke();
         // colorMode(HSB,360,255,255);
+        surface.setTitle("Space Filling Curve");
+        
+        
         ProjectController.p = this;
         background(0);
         angle = radians(60);
@@ -97,8 +102,8 @@ public class fillCurve1 extends PApplet {
 
     /*
      * draw() method: Draws the animation on the graphics window. It uses the
-     * applyRules() method to
-     * generate the curve string, then iteratively calls the drawString() method to
+     * applyRules() method to generate the curve string, 
+     * then iteratively calls the drawString() method to
      * draw the characters of the string.
      * The background color is reset and the position is reset to the center of the
      * window when the animation is complete.

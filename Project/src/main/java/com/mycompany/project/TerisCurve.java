@@ -43,7 +43,7 @@ public class TerisCurve extends PApplet{
             path[i].add(0,0);
             
         }
-        surface.setTitle("Hilbert Curve!"); // name of the window
+        surface.setTitle("Tetris Curve!"); // name of the window
 //      surface.setLocation(100, 100);
         surface.setAlwaysOnTop(true);   
     }

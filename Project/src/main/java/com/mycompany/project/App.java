@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.image.Image;
 import processing.javafx.PSurfaceFX;
 
 /**
@@ -38,9 +39,13 @@ public class App extends Application {
 // Set the stage in the ProjectController class
         ProjectController.stage = primaryStage;
 
-// Create the scene and set its size
+//Set stage logo
+        Image icon = new Image(getClass().getResourceAsStream("logo.png"));
+        primaryStage.getIcons().add(icon);
+        
+// Create the scene and set its size 
         scene = new Scene(root, 1400, 720);
-
+            
 // Set the scene in the primary stage and display it
         primaryStage.setScene(scene);
         primaryStage.show();
