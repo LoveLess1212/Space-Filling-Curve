@@ -244,7 +244,7 @@
                                  <children>
                                     <ImageView fitHeight="188.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../image/Screenshot%202023-02-07%20184054.JPG" />
+                                          <Image url="@../image/Screenshot%202023-02-10%20190814.JPG" />
                                        </image>
                                        <VBox.margin>
                                           <Insets bottom="30.0" />
